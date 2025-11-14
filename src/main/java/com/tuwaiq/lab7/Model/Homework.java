@@ -3,6 +3,7 @@ package com.tuwaiq.lab7.Model;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -25,7 +26,7 @@ public class Homework {
     @Max(value = 100, message = "Sorry, your grade can't exceed 100, please try again")
     private double grade;
     @NotNull(message = "Sorry, your deadline can't be empty, please try again")
-    @Future(message = "Sorry, your deadline can only be in the future, please try again")
+    @DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
     private LocalDateTime deadline;
     private LocalDateTime submissionDate;
 }
